@@ -6,9 +6,40 @@
 
 
 
+
+:root{
+    --font-primary: "Baloo 2", serif;
+    --secondary-font: "Mulish", serif;
+}
+
+
+.hamburguer{
+    /* background-color: red; */
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 100;           /* Qualquer valor diferente de negativo para a classe se sobrepor a imagem/texto */
+    right: 2rem;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.line{
+    width: 100%;            /* 100% da largura do elemento pai(hamburguer)*/
+    height: .2rem;
+    background-color: #fff;
+    box-shadow: 0.1rem 0.1rem 1px rgb(0, 0, 0); /* Sombra na posição X, Y, Blur, Cor de sombra */
+    border-radius: 10px;
+}
+
 *{                          /* Setta uma configuração para todos os elementos da página */ 
     margin: 0;
     padding: 0;
+    list-style: none;
+    text-decoration: none;
 }
 
 header{                     /* Settando qual o tamanho que o header irá ocupar */
@@ -50,7 +81,7 @@ header{                     /* Settando qual o tamanho que o header irá ocupar 
 
 .banner h1{
     color:#fff;
-    font-family: "Baloo 2", serif;
+    font-family: var(--font-primary);
     font-size: 3.5rem;
     font-weight: 200;       /* A intensidade do negrito dos caracteres*/    
     text-shadow: .3rem .4rem 4px rgb(0, 0, .4); /* Sombra das fontes */
@@ -61,11 +92,11 @@ header{                     /* Settando qual o tamanho que o header irá ocupar 
 
 .banner p{    
     color: #fff;
-    font-family: "Mulish", serif;
+    font-family: var(--secondary-font);
     font-size: 2rem;
     font-weight: 100;       /* A intensidade do negrito dos caracteres*/
     text-shadow: .3rem .4rem 4px rgb(0, 0, .4); /* Sombra das fontes */;
-    margin-top: 1rem;
+    margin-top: .1rem;
     margin-bottom: 1rem;
     opacity: 0;
     animation: moveBanner 1s 0.7s forwards;
@@ -74,7 +105,7 @@ header{                     /* Settando qual o tamanho que o header irá ocupar 
 .banner button {
     
     color: rgb(255, 255, 255);
-    font-family: "Mulish", serif;
+    font-family: var(--secondary-font);
     text-transform: uppercase;
     background: #6a3093;  /* fallback for old browsers - Navegadores mais antigos*/
     background: -webkit-linear-gradient(to right, #a044ff, #6a3093);  /* Chrome 10-25, Safari 5.1-6 */
@@ -102,4 +133,36 @@ header{                     /* Settando qual o tamanho que o header irá ocupar 
         opacity: 1;
         
     }
+}
+
+.sidebar{
+    width: 20rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;             /* Os posicionamentos referentes aos eixos X e Y não funcionam sem a posição fixa. */
+    right: 0;           /* Os posicionamentos referentes aos eixos X e Y não funcionam sem a posição fixa. */
+    background-color: #fff;
+    
+}
+
+.menu {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-item{
+    text-align: center;
+}
+
+.menu-link{
+    font-family: var(--secondary-font);
+    font-size: 2rem;
+    color: #555;
+    
+}
+
+.menu-link:hover{
+    color: #6019a7;
 }

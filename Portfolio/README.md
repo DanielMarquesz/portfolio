@@ -9,5 +9,5 @@ O Controle de Tarefas do projeto será realizado no github.
 
 :package: nova funcionalidade
 :up: atualização
-:beatle: correção de bug
-:checked_flag: release
+:bug: correção de bug
+:triangular_flag_on_post: release
