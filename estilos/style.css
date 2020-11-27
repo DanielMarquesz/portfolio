@@ -27,13 +27,64 @@
     cursor: pointer;
 }
 
+.hamburguer span{
+    position: absolute;
+    left: 3rem;
+    height: 2rem;
+    width: 6rem;
+    display: flex;                /* Permite a flexibilização dos elementos */
+    justify-content: center;      /* Justifica o conteúdo */
+    align-items: center;          /* Alinha on items ao centro */
+    background-color: #a044ff;
+    color: #fff;
+    font-family: var(--font-primary);
+    opacity: 0;                   /* Visibilidade Padrão 0  */
+}
+
+
+.hamburguer span::before{
+    content: "";
+    position: absolute;
+    border-right: .5rem solid #a044ff;
+    border-left: .5rem solid transparent;
+    border-top: .5rem solid transparent;
+    border-bottom: .5rem solid transparent;
+    left: -1rem;
+}
+
+
+.show-menu .hamburguer{     
+    right: 15rem;
+}
+
+.show-menu .hamburguer:hover span{
+    opacity: 1;
+}
+
+
 .line{
     width: 100%;            /* 100% da largura do elemento pai(hamburguer)*/
     height: .2rem;
     background-color: #fff;
     box-shadow: 0.1rem 0.1rem 1px rgb(0, 0, 0); /* Sombra na posição X, Y, Blur, Cor de sombra */
     border-radius: 10px;
+    transition: transform 1s;
 }
+
+.show-menu #line1{
+    transform: rotate(45deg) translate(.3rem, .45rem);
+}
+
+
+.show-menu #line2{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show-menu #line3{
+    transform: rotate(-45deg) translate(.1rem, -.51rem);
+}
+
 
 *{                          /* Setta uma configuração para todos os elementos da página */ 
     margin: 0;
@@ -135,14 +186,19 @@ header{                     /* Settando qual o tamanho que o header irá ocupar 
     }
 }
 
-.sidebar{
+.sidebar{   
     width: 20rem;
     height: 100vh;
     position: fixed;
-    top: 0;             /* Os posicionamentos referentes aos eixos X e Y não funcionam sem a posição fixa. */
-    right: 0;           /* Os posicionamentos referentes aos eixos X e Y não funcionam sem a posição fixa. */
+    top: 0;                     /* Os posicionamentos referentes aos eixos X e Y não funcionam sem a posição fixa. */
+    right: 0;                   /* Os posicionamentos referentes aos eixos X e Y não funcionam sem a posição fixa. */
     background-color: #fff;
-    
+    right: -20rem;              /* Esconde o Menu lateral */  
+    transition: all 0.7s;   
+}
+
+.show-menu .sidebar {
+    right: 0;                   /* Mostra o menu lateral */
 }
 
 .menu {
@@ -157,12 +213,39 @@ header{                     /* Settando qual o tamanho que o header irá ocupar 
 }
 
 .menu-link{
-    font-family: var(--secondary-font);
-    font-size: 2rem;
-    color: #555;
+    font-family: var(--secondary-font);         /* Referência a variável declarada com fonte*/
+    font-size: 2rem;                            /* Tamanho da fonte de cada link */
+    color: #555;                              /* Cor da fonte*/  
+    transition: color 1s;                       /* tempo de transição de cor ao passar sobre link */
     
 }
 
 .menu-link:hover{
     color: #6019a7;
+}
+
+.social-media{
+    position: absolute;                         /* Para que fique "sobre" o elemento pai. O elemento pai deve ter a posição "relative"*/
+    bottom: 2rem;
+    width: 100%;                                /* Para que ocupe o todo o espaço horizontal, e possa ser reajustado dentro desse espaço*/        
+    display: flex;                              /* Para que possamos reposicionar itens em formas de linha ou coluna, settando seus espaçamentos de forma dinâmica*/
+    justify-content: space-evenly;
+}
+
+.social-media i{
+    
+    color:#6a3093;
+    height: 2.5rem;                             
+    width: 2.5rem;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.social-media i:hover {
+    
+    color: #661bb1;
+    transition: color 1s;
 }
