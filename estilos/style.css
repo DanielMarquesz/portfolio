@@ -25,6 +25,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     cursor: pointer;
+    transition: 0.7s;
 }
 
 .hamburguer span{
@@ -37,7 +38,7 @@
     align-items: center;          /* Alinha on items ao centro */
     background-color: #a044ff;
     color: #fff;
-    font-family: var(--font-primary);
+    font-family: var(--font-primary);    
     opacity: 0;                   /* Visibilidade Padrão 0  */
 }
 
@@ -250,6 +251,10 @@ header{                     /* Settando qual o tamanho que o header irá ocupar 
     transition: color 1s;
 }
 
+
+/* ----------------------- Sessão dos Conhecimentos ----------------------------------- */
+
+
 .conhecimentos {                                /* Setta as configurações de GRID Layout*/
     display: grid;
     grid-template-columns: repeat(16, 1fr);     /* Espaço de ocupação das colunas (qtnd e tamanho)*/
@@ -306,6 +311,7 @@ header{                     /* Settando qual o tamanho que o header irá ocupar 
     margin-bottom: 2.5rem;
 }
 
+
 .conhecimento-header{
     display: flex;
     align-items: center;
@@ -338,4 +344,92 @@ header{                     /* Settando qual o tamanho que o header irá ocupar 
 .conhecimentos-img-wrapper img{     /* Para que a imagem se ajuste ao GRID Layout */
     object-fit: cover;
     width: 100%;
+}
+
+/* ----------------------- Sessão dos Projetos ----------------------------------- */
+
+
+.projetos{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card{                          /* Define a Formatação dos cartões */
+    width: 18rem;
+    height: 25rem;
+    position: relative;
+}
+
+.card-img-wrapper{
+    width: 100%;
+    height: 100%;    
+    background-color: #555555;
+    border-radius: .5rem;
+}
+
+.card-img-wrapper img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: .5rem;
+    opacity: .8;
+}
+
+.card-info{
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;    
+    bottom: 0;
+    padding: 2rem;
+    text-shadow: 0 0.1rem 0.3rem rgb(0, 0, 0, .4);
+    color: rgb(0, 0, 0);
+    transition: all .3s;
+}
+
+.card-info h2{    
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    font-weight: 500;    
+    color: rgb(255, 255, 255);
+}
+
+.card-info h3{
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    font-weight: 500;    
+    color: rgb(211, 209, 209);
+}
+
+.card-info p{
+    font-family: var(--font-primary);      
+    color: rgb(250, 248, 248);
+}
+
+
+.card-info button{
+    width: 8rem;
+    margin-top: .8rem;
+    height: 2.5rem;
+    background: #6a3093;  /* fallback for old browsers - Navegadores mais antigos*/
+    background: -webkit-linear-gradient(to right, #a044ff, #6a3093);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #a044ff, #6a3093);
+    border-radius: .3rem;
+    cursor: pointer;
+}
+
+.card-info button:hover{
+    width: 8rem;
+    height: 2.5rem;    
+    color: rgb(255, 255, 255);
+    background: #363636;  /* fallback for old browsers - Navegadores mais antigos*/
+    background: -webkit-linear-gradient(to right, #331e49, #c0b5c9);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #a28dcc, #650a7c);
+    border-radius: .3rem;
+    transition: 0.5s;
+}
+
+.card:hover .card-info{
+    opacity: 1;
+    visibility: visible;
+    transition: 0.5s;
 }
